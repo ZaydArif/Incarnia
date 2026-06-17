@@ -20,7 +20,7 @@ body {
     min-height: 100vh;
     padding: 3rem 1rem;
     text-align: center;
-    background-image: url("./main img/castleTop.png");
+    background-image: url("./castleTop.png");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -173,7 +173,7 @@ body {
     display: flex;
     gap: 24px;
     padding: 24px;
-    background-image: url("./main img/borderedPaper.png");
+    background-image: url("./borderedPaper.png");
     background-size: cover;
     background-position: center;
     border-radius: 28px;
