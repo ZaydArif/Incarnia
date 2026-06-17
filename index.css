@@ -1,0 +1,236 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: #111;
+    color: #f4f4f4;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    padding: 3rem 1rem;
+    text-align: center;
+    background-image: url("./main img/castleTop.png");
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: #050505;
+}
+
+.header h1 {
+    margin-top: 500px;
+    font-size: clamp(2.6rem, 6vw, 5rem);
+    color: rgb(98, 13, 13);
+    text-shadow: 1px 1px 18px rgba(0, 0, 0, 0.85);
+    opacity: 0;
+    animation: floatIn 1.2s ease forwards;
+}
+
+@keyframes floatIn {
+    from {
+        opacity: 0;
+        transform: translateY(24px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes subtlePulse {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-3px);
+    }
+}
+
+.revealable {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.65s ease var(--reveal-delay, 0ms), transform 0.65s ease var(--reveal-delay, 0ms);
+}
+
+.reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.main {
+    display: flex;
+    gap: 24px;
+    padding: 24px;
+}
+
+.sidebar {
+    width: min(23rem, 24%);
+    background: rgba(15, 15, 15, 0.94);
+    padding: 24px;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+    position: sticky;
+    top: 1rem;
+    align-self: flex-start;
+}
+
+.page-nav h2 {
+    margin-top: 0;
+}
+
+.page-list,
+.sub-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.page-list > li {
+    margin-bottom: 1rem;
+}
+
+.page-list a,
+.sub-list button {
+    display: block;
+    width: 100%;
+    border: none;
+    text-align: left;
+    padding: 1rem 1rem;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.06);
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.page-list a:hover,
+.sub-list button:hover,
+.page-list a.active {
+    background: rgba(98, 13, 13, 0.9);
+}
+
+.page-list a.active {
+    font-weight: 700;
+}
+
+.sub-list {
+    margin-top: 0.75rem;
+    padding-left: 0.75rem;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.25s ease;
+}
+
+.sub-list.open {
+    max-height: 500px;
+}
+
+.sub-list button {
+    margin-bottom: 0.5rem;
+}
+
+.sub-list button:hover {
+    background: rgba(255, 255, 255, 0.14);
+    transform: translateX(2px);
+}
+
+.content-shell {
+    flex: 1;
+    display: flex;
+    gap: 24px;
+    padding: 24px;
+    background-image: url("./main img/borderedPaper.png");
+    background-size: cover;
+    background-position: center;
+    border-radius: 28px;
+    min-width: 0;
+}
+
+.center-column {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    min-width: 0;
+}
+
+.right-sidebar {
+    flex: 1;
+    min-width: 20rem;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+}
+
+.content-panel {
+    padding: 28px;
+    background: rgba(0, 0, 0, 0.36);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.content-panel h2,
+.sidebar-panel h2 {
+    margin-top: 0;
+    color: #f7f1e3;
+}
+
+.sidebar-panel p {
+    line-height: 1.7;
+}
+
+@media (max-width: 1100px) {
+    .main {
+        flex-direction: column;
+        padding: 18px;
+    }
+
+    .sidebar,
+    .content-shell {
+        width: 100%;
+        position: static;
+    }
+
+    .content-shell {
+        flex-direction: column;
+    }
+
+    .right-sidebar {
+        min-width: 0;
+    }
+}
